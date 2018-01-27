@@ -75,6 +75,19 @@ public class player : MonoBehaviour {
 //            this.GetComponent<Rigidbody>().AddForce(0,600, 0);
         }
     }
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        hitnormal = hit.normal;
+        hitpoint = hit.point;
+        collidingwith = hit;
+        if (hit.gameObject.name == "Bird")
+        {
+            RotateCam.player = hit.gameObject;
+            this.GetComponent<player>().enabled = false;
+            Bird.thisObj.enabled = true;
+        }
+
+    }
     // Update is called once per frame
    
     void Update ()
@@ -83,6 +96,7 @@ public class player : MonoBehaviour {
         // if(isStanding==false)
         // this.GetComponent<Rigidbody>().AddForce(0, -1, 0);
         //this.transform.Find("Main Camera").localPosition = Input.mousePosition;
+        
         
         
         
@@ -211,16 +225,10 @@ public class player : MonoBehaviour {
                     {
                         airdashing = false;
                         TimeSinceAirDashing = 0;
-                        //speed = speed / 2f;
     
                     }
                 }
-                //RaycastHit hit;
-                // var ray = new Ray(transform.position, Vector3.down);
-                //if(controller.Raycast(ray,  ,4f))
-                //controller.Raycast(,,);
-                //moveDirection.x = moveDirection.x % RotateCam.CameraRotation.y;
-                //moveDirection.z = moveDirection.z + RotateCam.CameraRotation.y;
+
     
                 Vector3 fwd = transform.TransformDirection(Vector3.down) * 1.3f;
                 Debug.DrawRay(transform.position, fwd, Color.green);
@@ -298,13 +306,7 @@ public class player : MonoBehaviour {
             
     
 }
-    void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        hitnormal = hit.normal;
-        hitpoint = hit.point;
-        collidingwith = hit;
-       
-    }
+
     private void LateUpdate()
     {
 

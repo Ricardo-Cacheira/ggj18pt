@@ -1,0 +1,10 @@
+This Package contains the following:
+_Materials Folder: This contains all the materials of the example mesh.
+_Texture Folder: Here you find all the necessary test textures to get a good feeling for the possibilities of the shader
+_Example scene: to prevue the example mesh
+_Manga Shader: the power behind everything. Take you time to test it and tweak with the setting of the materials and see how I applied it to the example mesh in the scene.
+_Plant Mesh: me simple mesh to test and play on with the shader.
+_Rotator script: lets the model rotate in play mode
+
+If you come across any questions please contact met at crowsfieldco@gmail.com
+Its advised to not apply lightmapping to this shader. Use dynamic lighting.

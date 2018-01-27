@@ -5,7 +5,7 @@ using UnityEngine;
 public class RotateCam : MonoBehaviour {
 
     // Use this for initialization
-    GameObject player;
+    public static GameObject player;
     public static Quaternion CameraRotation;
 	void Start () {
         player = GameObject.Find("Player");
